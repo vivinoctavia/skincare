@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(scaffoldBackgroundColor: Colors.pink),
+      theme: ThemeData(scaffoldBackgroundColor: Colors.white),
       routes: {
         "/": (context) => Utama(),
         // "/profile" : (context) => ),
