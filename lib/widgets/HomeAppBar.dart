@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Home extends StatelessWidget {
-  const Home({Key? key}) : super(key: key); // Menggunakan Key dengan benar
+  const Home({Key? key}) : super(key: key); 
 
   @override
   Widget build(BuildContext context) {
@@ -26,13 +26,13 @@ class Home extends StatelessWidget {
               ),
             ),
           ),
-          Spacer(), // Untuk memberikan ruang di antara teks dan ikon lonceng
+          Spacer(), 
           Icon(
-            Icons.notifications, // Ikon lonceng
+            Icons.notifications, 
             size: 30,
             color: Colors.black,
           ),
-          // Anda dapat menambahkan logika untuk menangani tindakan ketika ikon lonceng ditekan di sini
+          
           // IconButton(
           //   icon: Icon(Icons.shop),
           //   onPressed: () {

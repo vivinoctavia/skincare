@@ -37,6 +37,8 @@ dependencies:
   cupertino_icons: ^1.0.2
   google_fonts: ^6.1.0
   infinite_carousel: ^1.0.3
+  firebase_auth: ^4.12.0
+  firebase_core: ^2.20.0
 
 dev_dependencies:
   flutter_test:

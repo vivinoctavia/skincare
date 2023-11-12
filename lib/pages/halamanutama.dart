@@ -2,11 +2,38 @@ import 'package:flutter/material.dart';
 import 'package:skincare/model/jenis.dart';
 import 'package:skincare/pages/gridviews.dart';
 import 'package:skincare/widgets/HomeAppBar.dart';
+import 'package:skincare/widgets/fecthApi.dart';
 
-// import 'package:infinite_carousel/infinite_carousel.dart';
 
-class Utama extends StatelessWidget {
+class Utama extends StatefulWidget {
   @override
+  State<Utama> createState() => _UtamaState();
+}
+
+class _UtamaState extends State<Utama> {
+  List datalist = [];
+
+  @override
+    void setupdata() async {
+    APiFetch fetch = new APiFetch();
+    await fetch.getapiData();
+    setState(() {
+      datalist = fetch.data_api;
+    });
+
+    if (datalist.isEmpty) {
+      print("data kosong");
+    } else {
+      print("data sudah terisi");
+    }
+  }
+
+  void initState() {
+
+    setupdata();
+    super.initState();
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListView(
@@ -35,29 +62,6 @@ class Utama extends StatelessWidget {
               ],
             ),
           ),
-          // Container(
-          //   height: 200,
-          //   child: InfiniteCarousel.builder(
-          //     itemCount: 10,
-          //     itemExtent: 120,
-          //     center: true,
-          //     anchor: 0.0,
-          //     velocityFactor: 0.2,
-          //     onIndexChanged: (index) {},
-          //     controller: ScrollController(),
-          //     axisDirection: Axis.horizontal,
-          //     loop: true,
-          //     itemBuilder: (context, itemIndex, realIndex) {
-          //       return Container(
-          //         child: Row(
-          //           children: [
-          //             Image.asset("assets/image/k1.jpg"),
-          //           ],
-          //         ),
-          //       );
-          //     },
-          //   ),
-          // ),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Container(
@@ -83,7 +87,7 @@ class Utama extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Image.asset("assets/image/k1.jpg"),
+                  
                   SizedBox(width: 50),
                   Image.asset("assets/image/lip.png"),
                   SizedBox(width: 50),
@@ -147,6 +151,9 @@ class Utama extends StatelessWidget {
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
+        onTap: (value) {
+          
+        },
         items: const [
           BottomNavigationBarItem(
             backgroundColor: Colors.cyan,
@@ -160,6 +167,7 @@ class Utama extends StatelessWidget {
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
             label: 'Profile',
+            
           ),
         ],
       ),

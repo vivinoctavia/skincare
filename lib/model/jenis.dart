@@ -18,7 +18,7 @@ var produkList = [
   ProductContainer(
       gambar: 'assets/image/foun1.jpg', produk: 'Foundation', ket: 'New'),
   ProductContainer(
-      gambar: 'assets/image/con.png', produk: 'Concealer', ket: 'New'),
+      gambar: 'assets/image/con1.jpg', produk: 'Concealer', ket: 'New'),
   ProductContainer(
       gambar: 'assets/image/masca.png', produk: 'Mascara', ket: 'New'),
   ProductContainer(gambar: 'assets/image/p2.jpg', produk: 'Powder', ket: 'New'),
