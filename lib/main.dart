@@ -1,11 +1,14 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:skincare/pages/detailview.dart';
-import 'package:skincare/pages/halamanutama.dart';
-import 'package:skincare/pages/login.dart';
-import 'package:skincare/pages/register.dart';
+// import 'package:skincare/pages/detailview.dart';
+// import 'package:skincare/pages/halamanutama.dart';
+import 'package:skincare/pages/halamanutama1.dart';
 import 'package:skincare/pages/splash.dart';
-import 'package:skincare/widgets/HomeAppBar.dart';
+// import 'package:skincare/pages/home_user.dart';
+// import 'package:skincare/pages/login.dart';
+// import 'package:skincare/pages/profile.dart';
+// import 'package:skincare/pages/register.dart';
+// import 'package:skincare/widgets/HomeAppBar.dart';
 
 Future <void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -27,8 +30,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(scaffoldBackgroundColor: Colors.white),
+      home: SplashScreen(),
       routes: {
-        "/": (context) => SplashScreen(),
+        // "/listUser": (context) =>HomeUser()
         // "/profile" : (context) => ),
         // "/utama": (context) => Utama(),
       },

@@ -37,6 +37,7 @@ class SplashScreen extends StatelessWidget {
                 ));
               },
               style: ElevatedButton.styleFrom(
+                fixedSize: Size.fromHeight(50),
                 primary: Color.fromARGB(255, 229, 129, 162), // Background tombol warna pink
                 onPrimary: Colors.white, // Warna teks putih
                 // shape: CircleBorder(side: BorderSide(width: 23))

@@ -1,26 +1,39 @@
 import 'package:flutter/material.dart';
 import 'package:skincare/model/data_produk.dart';
 import 'package:skincare/model/jenis.dart';
+import 'package:skincare/pages/favorit.dart';
 import 'package:skincare/pages/detailview.dart';
+import 'package:skincare/widgets/fectApi2.dart';
 
-class Haldua extends StatelessWidget {
-  Haldua({Key? key, required this.produk});
-  final ProductContainer produk;
+class Haldua extends StatefulWidget {
+   Haldua({super.key, required item});
+  
 
+  @override
+  _HalduaState createState() => _HalduaState();
+}
+
+class _HalduaState extends State<Haldua> {
+   Repository2 repo3 = Repository2();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(actions: [], backgroundColor: Colors.pink[200]),
-      body: CustomScrollView(
+      body: 
+      FutureBuilder<List<dynamic>>(
+        future: repo3.fetchDataMakeUp2(),
+        builder: (BuildContext context, AsyncSnapshot snapshot) {
+          print(snapshot.data);
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return Center(child: CircularProgressIndicator());
+          } else if (snapshot.hasError) {
+            return Center(child: Text('Error fetching data'));
+          } else if (snapshot.hasData) {
+                List<dynamic> data = snapshot.data as List<dynamic>;
+                return CustomScrollView(
         slivers: <Widget>[
-          SliverToBoxAdapter(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            ),
-          ),
           SliverPadding(
-            padding: EdgeInsets.symmetric(
-                horizontal: 16.0), // Add the desired horizontal padding
+            padding: EdgeInsets.symmetric(horizontal: 16.0),
             sliver: SliverGrid(
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 mainAxisExtent: 180,
@@ -30,18 +43,19 @@ class Haldua extends StatelessWidget {
               ),
               delegate: SliverChildBuilderDelegate(
                 (BuildContext context, int index) {
-                  final filteredDataProdukList = dataprodukList
-                      .where((dataProduk) => dataProduk.jenis == produk.produk)
-                      .toList();
+                  
+                  // final filteredDataProdukList = dataprodukList.where((dataProduk) => dataProduk. == widget.produk.name).toList();
 
-                  if (index < filteredDataProdukList.length) {
-                    final dataProduk = filteredDataProdukList[index];
+                  if (index < data.length) {
+                    final dynamic item = data[index];
                     return GestureDetector(
                       onTap: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) {
-                          return detail(detailproduk: dataProduk);
-                        }));
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) {
+                            return detail(detailproduk: data[index]);
+                          }),
+                        );
                       },
                       child: Container(
                         padding: EdgeInsets.all(10),
@@ -52,12 +66,12 @@ class Haldua extends StatelessWidget {
                         ),
                         child: Column(
                           children: [
-                            Image.asset(
-                              dataProduk.gambar,
+                            Image.network(
+                              snapshot.data[index].gambar,
                               width: 100,
                             ),
-                            Text(dataProduk.merk),
-                            Text(dataProduk.harga),
+                            Text(snapshot.data[index].merk),
+                            Text(snapshot.data[index].harga),
                           ],
                         ),
                       ),
@@ -66,31 +80,17 @@ class Haldua extends StatelessWidget {
                     return Container();
                   }
                 },
-                childCount: dataprodukList
-                    .where((dataProduk) => dataProduk.jenis == produk.produk)
-                    .length,
+                childCount: data.length,
               ),
             ),
           ),
         ],
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const [
-          BottomNavigationBarItem(
-            backgroundColor: Colors.cyan,
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.card_travel),
-            label: 'Favorites',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Profile',
-          ),
-        ],
-      ),
+                );
+          } else{
+             return Center(child: CircularProgressIndicator());
+          }
+      }
+      )
     );
   }
 }

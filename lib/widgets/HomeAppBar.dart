@@ -27,11 +27,6 @@ class Home extends StatelessWidget {
             ),
           ),
           Spacer(), 
-          Icon(
-            Icons.notifications, 
-            size: 30,
-            color: Colors.black,
-          ),
           
           // IconButton(
           //   icon: Icon(Icons.shop),
@@ -42,5 +37,6 @@ class Home extends StatelessWidget {
         ],
       ),
     );
+    
   }
 }

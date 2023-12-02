@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:skincare/pages/profile.dart';
 import 'package:skincare/model/data_produk.dart';
 import 'package:skincare/model/jenis.dart';
 
@@ -23,7 +24,7 @@ class detail extends StatelessWidget {
                   borderRadius: const BorderRadius.only(
                       bottomRight: Radius.circular(40),
                       bottomLeft: Radius.circular(40)),
-                  child: Image.asset(detailproduk.gambar,
+                  child: Image.network(detailproduk.gambar,
                       width: 400, fit: BoxFit.fill)),
             ),
             Container(
@@ -86,25 +87,25 @@ class detail extends StatelessWidget {
                       detailproduk.deskripsi,
                       textAlign: TextAlign.justify,
                     ))),
-            Container(
-              margin: const EdgeInsets.only(top: 18, left: 20, bottom: 10),
-              child: const Text(
-                "Keunggulan",
-                style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
-              ),
-            ),
-            Container(
-              margin: const EdgeInsets.only(left: 12),
-              height: 150,
-              child: ListView(
-                children: detailproduk.keunggulan.map((url) {
-                  return Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text(url),
-                  );
-                }).toList(),
-              ),
-            ),
+            // Container(
+            //   margin: const EdgeInsets.only(top: 18, left: 20, bottom: 10),
+            //   child: const Text(
+            //     "Keunggulan",
+            //     style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+            //   ),
+            // ),
+            // Container(
+            //   margin: const EdgeInsets.only(left: 12),
+            //   height: 150,
+            //   child: ListView(
+            //     children: detailproduk.keunggulan.map((url) {
+            //       return Padding(
+            //         padding: const EdgeInsets.all(8.0),
+            //         child: Text(url),
+            //       );
+            //     }).toList(),
+            //   ),
+            // ),
             // Container(
             //   child: Card(
             //     margin: EdgeInsets.all(10),
@@ -122,6 +123,14 @@ class detail extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
+        onTap: (int index) {
+          if (index == 2){
+            Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ProfilePage()),
+                );
+          }
+        },
         items: const [
           BottomNavigationBarItem(
             backgroundColor: Colors.cyan,
