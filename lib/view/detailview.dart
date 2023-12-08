@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:skincare/pages/profile.dart';
+import 'package:skincare/view/profile.dart';
 import 'package:skincare/model/data_produk.dart';
 import 'package:skincare/model/jenis.dart';
 
@@ -137,10 +137,10 @@ class detail extends StatelessWidget {
             icon: Icon(Icons.home),
             label: 'Home',
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.card_travel),
-            label: 'Favorites',
-          ),
+          // BottomNavigationBarItem(
+          //   icon: Icon(Icons.card_travel),
+          //   label: 'Favorites',
+          // ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
             label: 'Profile',

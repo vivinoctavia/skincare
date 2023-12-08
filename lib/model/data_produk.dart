@@ -1,12 +1,6 @@
 import 'package:meta/meta.dart';
 import 'dart:convert';
 
-// To parse this JSON data, do
-//
-//     final dataProduct = dataProductFromJson(jsonString);
-
-import 'dart:convert';
-
 DataProduct dataProductFromJson(String str) => DataProduct.fromJson(json.decode(str));
 
 String dataProductToJson(DataProduct data) => json.encode(data.toJson());

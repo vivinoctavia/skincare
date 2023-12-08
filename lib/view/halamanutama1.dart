@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:skincare/pages/gridviews.dart';
-import 'package:skincare/pages/profile.dart';
-import 'package:skincare/widgets/HomeAppBar.dart';
-import 'package:skincare/widgets/fecthApi.dart';
+import 'package:skincare/view/gridviews.dart';
+import 'package:skincare/view/profile.dart';
+import 'package:skincare/viewModel/HomeAppBar.dart';
+import 'package:skincare/viewModel/fecthApi.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -130,17 +130,17 @@ class _MainScreenState extends State<MainScreen> {
             icon: Icon(Icons.home),
             label: 'Home',
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.card_travel),
-            label: 'Favorites',
-          ),
+          // BottomNavigationBarItem(
+          //   icon: Icon(Icons.card_travel),
+          //   label: 'Favorites',
+          // ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
             label: 'Profile',
           ),
         ],
           onTap: (int index) {
-          if (index == 2) {
+          if (index == 1) {
             Navigator.push(
               context,
               MaterialPageRoute(

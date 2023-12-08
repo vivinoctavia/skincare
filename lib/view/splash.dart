@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:skincare/pages/login.dart';
+import 'package:skincare/view/login.dart';
 
 
 class SplashScreen extends StatelessWidget {
@@ -26,24 +26,24 @@ class SplashScreen extends StatelessWidget {
       ),
       bottomNavigationBar: BottomAppBar(
         color: Color.fromARGB(255, 19, 18, 18), // Background tombol warna pink
-        child: Container(
+        child: SizedBox(
           height: 60.0,
-          child: Center(
-            child: ElevatedButton(
-              onPressed: () {
-                // Navigasi ke halaman login ketika tombol ditekan
-                Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => Login(),
-                ));
-              },
-              style: ElevatedButton.styleFrom(
-                fixedSize: Size.fromHeight(50),
-                primary: Color.fromARGB(255, 229, 129, 162), // Background tombol warna pink
-                onPrimary: Colors.white, // Warna teks putih
-                // shape: CircleBorder(side: BorderSide(width: 23))
-              ),
-              child: Text('Getting Started'),
+          width: double.infinity,
+          child: ElevatedButton(
+            
+            onPressed: () {
+              // Navigasi ke halaman login ketika tombol ditekan
+              Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => Login(),
+              ));
+            },
+            style: ElevatedButton.styleFrom(
+              fixedSize: Size.fromHeight(50),
+              primary: Color.fromARGB(255, 229, 129, 162), // Background tombol warna pink
+              onPrimary: Colors.white, // Warna teks putih
+              
             ),
+            child: Text('Getting Started', style: TextStyle(fontSize: 25),),
           ),
         ),
       ),

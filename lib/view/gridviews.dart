@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:skincare/model/data_produk.dart';
 import 'package:skincare/model/jenis.dart';
-import 'package:skincare/pages/favorit.dart';
-import 'package:skincare/pages/detailview.dart';
-import 'package:skincare/widgets/fectApi2.dart';
+import 'package:skincare/view/detailview.dart';
+import 'package:skincare/viewModel/fectApi2.dart';
 
 class Haldua extends StatefulWidget {
    Haldua({super.key, required item});

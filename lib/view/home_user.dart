@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:skincare/pages/firestore_service.dart';
+import 'package:skincare/view/firestore_service.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class HomeUser extends StatefulWidget {

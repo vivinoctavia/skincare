@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:skincare/pages/firebase_auth.dart';
-import 'package:skincare/pages/halamanutama.dart';
-import 'package:skincare/pages/login.dart';
+import 'package:skincare/view/firebase_auth.dart';
+import 'package:skincare/view/halamanutama1.dart';
+import 'package:skincare/view/login.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Register extends StatefulWidget {
@@ -68,6 +68,7 @@ class _RegisterState extends State<Register> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
         child: Center(
@@ -142,7 +143,7 @@ class _RegisterState extends State<Register> {
                 ),
               ),
               const SizedBox(
-                height: 10,
+                height: 12.5,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,

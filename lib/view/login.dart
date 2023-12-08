@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:skincare/pages/firebase_auth.dart';
-import 'package:skincare/pages/halamanutama1.dart';
-import 'package:skincare/pages/register.dart';
+import 'package:skincare/view/firebase_auth.dart';
+import 'package:skincare/view/halamanutama1.dart';
+import 'package:skincare/view/register.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -53,6 +53,7 @@ class _LoginState extends State<Login> {
   Widget build(BuildContext context) {
     return Scaffold(
       // backgroundColor: Colors.white,
+      resizeToAvoidBottomInset: false,
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
         child: Center(
@@ -75,7 +76,7 @@ class _LoginState extends State<Login> {
                   hintText: "Email Address",
                 ),
               ),
-              const SizedBox(
+               SizedBox(
                 height: 20.0,
               ),
               TextField(
@@ -86,29 +87,29 @@ class _LoginState extends State<Login> {
                 ),
                 obscureText: true,
               ),
-              const SizedBox(
-                height: 20.0,
+               SizedBox(
+               height: 20.0,
               ),
-              SizedBox(
-                height: 20 ,
-                width: double.infinity,
-                child: Expanded(
-                  child: ElevatedButton(
-                    onPressed: () {
-                      login();
-                    },
-                    style: ElevatedButton.styleFrom(
-                        backgroundColor: Color.fromARGB(255, 230, 109, 149)),
-                    child: const Text(
-                      "Login",
-                      style: TextStyle(color: Colors.white,fontSize: 20),
+
+                SizedBox(
+                  height: 60,
+                  width: double.infinity,
+                  child: Expanded(
+                    child: ElevatedButton(
+                      onPressed: () {
+                        login();
+                      },
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Color.fromARGB(255, 230, 109, 149)),
+                      child: const Text(
+                        "Login",
+                        style: TextStyle(color: Colors.white,fontSize: 20),
+                      ),
                     ),
                   ),
                 ),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
+              
+              const SizedBox(height: 12),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
