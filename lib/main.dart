@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:skincare/view/gridviews.dart';
 // import 'package:skincare/pages/detailview.dart';
 // import 'package:skincare/pages/halamanutama.dart';
 import 'package:skincare/view/halamanutama1.dart';
@@ -33,9 +34,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(scaffoldBackgroundColor: Colors.white),
       home: SplashScreen(),
       routes: {
-        // "/listUser": (context) =>HomeUser()
-        // "/profile" : (context) => ),
-        // "/utama": (context) => Utama(),
+        // "/login": (context) =>Login(),
+        // "/utama" : (context) => MainScreen(),
+
       },
     );
   }

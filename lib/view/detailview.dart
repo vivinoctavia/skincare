@@ -87,44 +87,12 @@ class detail extends StatelessWidget {
                       detailproduk.deskripsi,
                       textAlign: TextAlign.justify,
                     ))),
-            // Container(
-            //   margin: const EdgeInsets.only(top: 18, left: 20, bottom: 10),
-            //   child: const Text(
-            //     "Keunggulan",
-            //     style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
-            //   ),
-            // ),
-            // Container(
-            //   margin: const EdgeInsets.only(left: 12),
-            //   height: 150,
-            //   child: ListView(
-            //     children: detailproduk.keunggulan.map((url) {
-            //       return Padding(
-            //         padding: const EdgeInsets.all(8.0),
-            //         child: Text(url),
-            //       );
-            //     }).toList(),
-            //   ),
-            // ),
-            // Container(
-            //   child: Card(
-            //     margin: EdgeInsets.all(10),
-            //     color: Color.fromARGB(255, 244, 54, 158),
-            //     child: TextButton(
-            //       onPressed: () {},
-            //       child: Text(
-            //         "ADD TO CART",
-            //         style: TextStyle(color: Colors.white),
-            //       ),
-            //     ),
-            //   ),
-            // )
           ],
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
         onTap: (int index) {
-          if (index == 2){
+          if (index == 1){
             Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => ProfilePage()),
